@@ -1,0 +1,19 @@
+/*  */
+
+
+.label, .data{
+font-family:Arial,Helvetica,Sans-serif;
+	font-size:14px;
+	font-weight: bold;
+}
+
+#myMailTo{
+	display: none;
+}
+.centerText{
+	text-align: center;
+}
+
+
+
+

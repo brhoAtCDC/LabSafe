@@ -1,0 +1,19 @@
+CACHE MANIFEST
+#October 10, 2014
+
+CACHE:
+#jquery core
+http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js
+http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.css
+
+#jquery mobile core
+http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+
+#my app files
+js/checklist.js
+css/checklist.css
+img/LabIcon.png
+
+
+NETWORK:
+*

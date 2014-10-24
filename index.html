@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--<html manifest="offline.appcache"> --> <!-- node does not recognize a .manifest file so have to edit mime.types file to include "text/cache-manifest manifest" -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-title" content="CDC LabSafe">
+
+
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.css" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
+
+
+
+<script src="js/checklist.js"></script>
+
+
+<link type="text/css" href="css/checklist.css" rel="stylesheet" />
+
+
+<link rel="apple-touch-icon" href="img/LabIcon.png"> <!--loads my own custom icon if user  chooses to load onto their home screen. -->
+<meta name="apple-mobile-web-app-capable" content="yes"> <!-- removes address bar from Safari. -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black"><!-- sets the background color of the status bar to black:-->
+
+</head>
+<body>
+
+
+<!-- This is the main selection page -->
+<div data-role="page" id="home" data-theme="a">
+<div data-role="header">
+	<h1>Lab Procedural Check lists</h1>
+</div>  <!--end header -->
+
+	<div data-role="main" class="ui-content">
+		<div data-role="fieldcontain">
+			<label for="selectForm" class="select">Choose a Check list:</label>
+			<select name="selectForm" id="selectForm" data-native-menu="false">
+				<option value="">Choose one...</option>
+				<option value="form1">Generating Lysates ...</option>
+				<option value="form2">Checklist 2</option>
+				<option value="form3">Checklist 3</option>
+				<option value="form4">Checklist 4</option>
+			</select>
+		</div>
+		<!--<a id="goToForm" class="ui-btn ui-btn-b ui-corner-all" data-transition="slideup" data-inline="true" data-theme="b">Go To Form...</a>-->
+		<p class="centerText">
+			<a id="goToForm" data-role="button" data-inline="true" data-theme="b" data-transition="slideup" >Go To Form...</a>
+		</p>
+	</div> <!--End Main -->
+
+	<div data-role="footer" class="ui-bar">
+		<!--<a href="#form1" id="form1Button"  data-role="button" data-transition="slideup" data-direction="reverse" data-icon="gear"  data-inline="true" data-mini="true" data-iconpos="notext">Go to Form</a>-->
+	</div> <!-- End Footer -->
+</div> <!-- End Page 1 -->
+
+<!-- 
+**********************************Checklist Page *****************************************
+*****************************************************************************************
+-->
+<div data-role="page" id="form1" data-theme="a">
+	<div data-role="header">
+		<h1>Generating Lysates of Enveloped Positive Strand RNA Viruses by AVL buffer (Qiagen) Inactivation</h1>
+		<a href="#home" id="backButton" data-transition="fade" class="ui-btn-left" data-role="button" data-icon="home"  data-inline="true" data-mini="true" data-iconpos="notext">back</a>
+	</div>  <!--end header -->
+
+	<div data-role="main" class="ui-content">
+	<!-- Use a 2 column grid -->
+	<div class="ui-grid-a">
+		<div class="ui-block-a"><p class="label">Choose your location:<p></div>
+		<div class="ui-block-b">
+				<select name="selectLoc" id="selectLoc" data-native-menu="false">
+				<option>...</option>
+				<option value="loc1">BSL3 1224</option>
+				<option value="loc2">BSL3 1201</option>
+				<option value="loc3">BSL3 1229</option>
+				<option value="loc4">BSL3 1212</option>
+			</select>
+		</div>
+		<div class="ui-block-a"><p class="label">Number of Specimens Inactivated</p></div>
+		<div class="ui-block-b"><input type="number" min="1" name="specCount" id="specCount"   	placeholder="Enter a Number..."/></div>
+		<div class="ui-block-a"><p class="label">Specimen ID</p></div>
+		<div class="ui-block-b"><input type="text"  name="specID" id="specID"   	placeholder="Enter an ID..."/></div>
+		<div class="ui-block-a"><p class="label">Enter your supervisor's email address</p></div>
+		<div class="ui-block-b"><input type="email"  name="superEmail" id="superEmail"  value="" 	placeholder="email"/></div>
+		<div class="ui-block-a"><p class="label">Date</p></div>
+		<div class="ui-block-b"><p class="today"></p></div>
+		<div class="ui-block-a">
+			<input type="checkbox" name="alertSuperStart" id="alertSuperStart" class="checkboxes" />
+			<label class="data" for="alertSuperStart">Check here to automatically alert your supervisor that you are starting.</label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "alertSuperStart-time">Time Stamp</p></div>
+		
+		<div class="ui-block-a">
+			<input type="checkbox" name="checkbox-1a" id="checkbox-1a" class="checkboxes" />
+			<label class="data" for="checkbox-1a">Add 560 ul of undiluted AVL lysis buffer to clean screw-top microcentrifuge tubes</label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "checkbox-1a-time">Time Stamp</p></div>
+		
+		<div class="ui-block-a">
+			<input type="checkbox" name="checkbox-2a" id="checkbox-2a" class="checkboxes" />
+			<label class="data" for="checkbox-2a">Add specimen (140 ul) to tube with AVL buffer.</label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "checkbox-2a-time">Time Stamp</p></div>
+		<div class="ui-block-a">
+			<input type="checkbox" name="checkbox-3a" id="checkbox-3a" class="checkboxes"  />
+			<label class="data" for="checkbox-3a">Mix well by vortexing for 15 seconds.</label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "checkbox-3a-time">Time Stamp</p></div>
+
+		<div class="ui-block-a">
+			<input type="checkbox" name="checkbox-4a" id="checkbox-4a" class="checkboxes" />
+			<label class="data" for="checkbox-4a">Incubate specimen in lysis buffer for at least 10 minutes at room temperature</label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "checkbox-4a-time">Time Stamp</p></div>
+
+		<div class="ui-block-a">
+			<input type="checkbox" name="alertSuperStop" id="alertSuperStop" class="checkboxes" />
+			<label class="label" for="alertSuperStop">Check here to send this data to your supervisor. </label>
+		</div>
+		<div class="ui-block-b"><p class="timeStamp" id = "alertSuperStop-time">Time Stamp</p></div>
+		
+			
+	</div><!-- /grid-a -->
+		
+	
+<!-- Dialog Popup -->
+<div data-role="popup" id="sure" data-title="Are you sure?">
+  <div data-role="content">
+    <h3 class="sure-1">???</h3>
+    <p class="sure-2">???</p>
+	<div data-role="fieldcontain">
+		<label for="textarea">Optional message to Supervisor:</label>
+		<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+	</div>
+    <a href="#" class="sure-do"   data-role="button" data-inline="true" data-theme="b" data-rel="back">Send</a>
+    <a href="#" class="sure-dont" data-role="button" data-inline="true"data-theme="b" data-rel="back">Cancel</a>
+  </div>
+</div>
+	
+	</div> <!--End Main -->
+
+	
+	<div data-role="footer" class="centerText">
+			<a id="resetPage" data-role="button" data-inline="true" data-theme="b" >Reset</a>
+	</div> 
+
+</div>
+
+
+	
+</div>
+
+</body>
+</html>
+
