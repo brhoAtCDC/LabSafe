@@ -39,38 +39,8 @@
 $( document ).delegate("#form1", "pageinit", function() {
 	setDateToToday();
 	if(localStorage.getItem("supervisorEmail") )$("#superEmail").val(localStorage.getItem("supervisorEmail"));
-	initMic();
-	
 
 });
-
-function initMic() {
-
-
-	if (annyang) {
-	  // Let's define a command.
-	  var commands = {
-		'start': function{ $('#alertSuperStart').prop('checked', true).checkboxradio('refresh');} ,
-		'add lysis buffer' : function{ $('#checkbox-1a').prop('checked', true).checkboxradio('refresh');},
-		'add specimen' : function{ $('#checkbox-2a').prop('checked', true).checkboxradio('refresh');},
-		'mix well' : function{ $('#checkbox-3a').prop('checked', true).checkboxradio('refresh');},
-		'incubate' : function{ $('#checkbox-4a').prop('checked', true).checkboxradio('refresh');},
-		'send' : function{ $('#checkbox-5a').prop('checked', true).checkboxradio('refresh');}
-		 }
-	 
-	  
-
-	  // Add our commands to annyang
-	  annyang.addCommands(commands);
-
-	  // Start listening.
-	  annyang.start();
-	}
-	else alert("Can't access microphone. ");
-
-}
-
-
 
 
 /********************* Event Handlers *****************/
@@ -137,8 +107,7 @@ $(document).on("change", ".checkboxes", function(event) {
 
 //uncheck all boxes on Reset clicked
 $(document).on("click", "#resetPage", function(event) {
-	//$('.checkboxes').prop('checked', false).checkboxradio('refresh');
-	$('#checkbox-1a').prop('checked', true).checkboxradio('refresh');
+	$('.checkboxes').prop('checked', false).checkboxradio('refresh');
 });
 
 //End    Event Handlers
